@@ -99,12 +99,13 @@ struct ExtractedView2: View {
         GeometryReader(content: { geometry in
             let size = geometry.size
             VStack{
-                HStack(spacing: size.width * (0.13)){
+                HStack(spacing: size.width * (0.07)){
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Image("back")
                             .resizable()
-                            .frame(maxWidth: size.width / 10, maxHeight: size.width / 11)
+                            .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                             .padding(.top, size.height * (-0.01))
+                            .padding(.horizontal, size.width * (0.05))
                     })
                     
                     Text("New Goal")

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56014C4D2A3B1E6D0097986A /* FinishedGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */; };
 		56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56366A202A35EF77007866E6 /* ColorExtensions.swift */; };
 		56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */; };
 		56417EDE2A35EA8A007623DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56417EDD2A35EA8A007623DA /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGoals.swift; sourceTree = "<group>"; };
 		56366A202A35EF77007866E6 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankAppApp.swift; sourceTree = "<group>"; };
 		56417EDD2A35EA8A007623DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				56417EFF2A35EAC7007623DA /* MainScreen.swift */,
 				56417EFD2A35EAC7007623DA /* MenuScreen.swift */,
 				56417EFE2A35EAC7007623DA /* GaolScreen.swift */,
+				56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				56417EE32A35EA8A007623DA /* Model.swift in Sources */,
 				56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */,
 				56417F012A35EAC7007623DA /* GaolScreen.swift in Sources */,
+				56014C4D2A3B1E6D0097986A /* FinishedGoals.swift in Sources */,
 				56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
