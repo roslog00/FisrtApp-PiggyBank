@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NewMainScreen: View {
     
+    var dataBridge = User()
     @State var menuToggle = false
     @State var plusGoals = false
     
@@ -29,9 +30,8 @@ struct NewMainScreen: View {
                 }
                 
                 ZStack{
-                    
                     ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(0..<10) { line in
+                        ForEach(0..<(dataBridge.countOfGoals() + 1)) { line in
                             ZStack(alignment: .topTrailing){
                                 if line >  10 {
                                     Image("bad solution")
@@ -44,13 +44,13 @@ struct NewMainScreen: View {
                                                 .resizable()
                                                 .padding(.horizontal, size.width * 0.07)
                     
-                                            Text("Hello")
+                                            Text(dataBridge.obtainPersonsGoalsName())
                                                 .lineLimit(1)
                                                 .foregroundColor(Color("2670AD"))
                                                 .font(.custom("MullerMedium", size: size.width / 13))
                                                 .padding(.trailing, size.width * (0.7))
                                                 .padding(.top, size.height * (0.028))
-                                            Text("50" + "$")
+                                            Text(dataBridge.obtainPersonsGoalsCost() + "$")
                                                 .foregroundColor(Color("2670AD"))
                                                 .font(.custom("MullerBold",size: size.width / 7.2))
                                                 .padding(.trailing, size.width * (0.63))

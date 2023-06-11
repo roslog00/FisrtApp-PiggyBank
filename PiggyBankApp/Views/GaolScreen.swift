@@ -115,8 +115,8 @@ struct ExtractedView2: View {
                 
                 Button(action: {
                     OKMenuButton.toggle()
-                    dataBridge.saveGoalsName(usersGoalsName: dataBridge.goalsOfPerson, goalsName: dataBridge.goalsName)
-                    dataBridge.saveGoalsCost(usersGoalsCost: dataBridge.goalsOfPerson, goalsCost: dataBridge.goalsCost)
+                    dataBridge.saveGoalsName(usersGoalsName: dataBridge.goalsOfPerson, goalsName1: dataBridge.goalsName)
+                    dataBridge.saveGoalsCost(usersGoalsCost: dataBridge.goalsOfPerson, goalsCost1: dataBridge.goalsCost)
                 }, label: {
                     Text("OK")
                         .font(.custom("Polka", size: size.width / 7))
