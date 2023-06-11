@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56366A202A35EF77007866E6 /* ColorExtensions.swift */; };
+		56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */; };
+		56417EDE2A35EA8A007623DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56417EDD2A35EA8A007623DA /* Assets.xcassets */; };
+		56417EE32A35EA8A007623DA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EE22A35EA8A007623DA /* Model.swift */; };
+		56417EEF2A35EAA6007623DA /* MullerBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56417EEC2A35EAA6007623DA /* MullerBold.ttf */; };
+		56417EF02A35EAA6007623DA /* Polka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56417EED2A35EAA6007623DA /* Polka.ttf */; };
+		56417EF12A35EAA6007623DA /* MullerMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56417EEE2A35EAA6007623DA /* MullerMedium.ttf */; };
+		56417EF92A35EABA007623DA /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EF42A35EABA007623DA /* Words.swift */; };
+		56417EFA2A35EABA007623DA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EF52A35EABA007623DA /* ViewModel.swift */; };
+		56417F002A35EAC7007623DA /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFD2A35EAC7007623DA /* MenuScreen.swift */; };
+		56417F012A35EAC7007623DA /* GaolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFE2A35EAC7007623DA /* GaolScreen.swift */; };
+		56417F022A35EAC7007623DA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFF2A35EAC7007623DA /* MainScreen.swift */; };
+		5688E8532A36178E005750FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5688E8522A36178E005750FC /* Realm */; };
+		5688E8552A36178E005750FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5688E8542A36178E005750FC /* RealmSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		56366A202A35EF77007866E6 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankAppApp.swift; sourceTree = "<group>"; };
+		56417EDD2A35EA8A007623DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56417EE02A35EA8A007623DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56417EE22A35EA8A007623DA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		56417EE42A35EA8A007623DA /* PiggyBankApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiggyBankApp.entitlements; sourceTree = "<group>"; };
+		56417EE52A35EA8A007623DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56417EEC2A35EAA6007623DA /* MullerBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MullerBold.ttf; sourceTree = "<group>"; };
+		56417EED2A35EAA6007623DA /* Polka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Polka.ttf; sourceTree = "<group>"; };
+		56417EEE2A35EAA6007623DA /* MullerMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MullerMedium.ttf; sourceTree = "<group>"; };
+		56417EF42A35EABA007623DA /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		56417EF52A35EABA007623DA /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		56417EFD2A35EAC7007623DA /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		56417EFE2A35EAC7007623DA /* GaolScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaolScreen.swift; sourceTree = "<group>"; };
+		56417EFF2A35EAC7007623DA /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		5688E8502A361624005750FC /* PiggyBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56417ED32A35EA89007623DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5688E8552A36178E005750FC /* RealmSwift in Frameworks */,
+				5688E8532A36178E005750FC /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56366A222A35EFA7007866E6 /* ColorExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				56366A202A35EF77007866E6 /* ColorExtensions.swift */,
+			);
+			path = ColorExtensions;
+			sourceTree = "<group>";
+		};
+		56417ECD2A35EA89007623DA = {
+			isa = PBXGroup;
+			children = (
+				56417ED82A35EA89007623DA /* PiggyBankApp */,
+				5688E8502A361624005750FC /* PiggyBankApp.app */,
+			);
+			sourceTree = "<group>";
+		};
+		56417ED82A35EA89007623DA /* PiggyBankApp */ = {
+			isa = PBXGroup;
+			children = (
+				56417EE42A35EA8A007623DA /* PiggyBankApp.entitlements */,
+				56417EF22A35EABA007623DA /* Model */,
+				56417EFC2A35EAC7007623DA /* Views */,
+				56417EEB2A35EAA6007623DA /* Font */,
+				56366A222A35EFA7007866E6 /* ColorExtensions */,
+				56417EDF2A35EA8A007623DA /* Preview Content */,
+			);
+			path = PiggyBankApp;
+			sourceTree = "<group>";
+		};
+		56417EDF2A35EA8A007623DA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				56417EE02A35EA8A007623DA /* Preview Assets.xcassets */,
+				56417EDD2A35EA8A007623DA /* Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		56417EEB2A35EAA6007623DA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				56417EEC2A35EAA6007623DA /* MullerBold.ttf */,
+				56417EED2A35EAA6007623DA /* Polka.ttf */,
+				56417EEE2A35EAA6007623DA /* MullerMedium.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		56417EF22A35EABA007623DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56417F232A35EB30007623DA /* Words */,
+				56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */,
+				56417EE22A35EA8A007623DA /* Model.swift */,
+				56417EF52A35EABA007623DA /* ViewModel.swift */,
+				56417EE52A35EA8A007623DA /* Info.plist */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56417EFC2A35EAC7007623DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				56417EFF2A35EAC7007623DA /* MainScreen.swift */,
+				56417EFD2A35EAC7007623DA /* MenuScreen.swift */,
+				56417EFE2A35EAC7007623DA /* GaolScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		56417F232A35EB30007623DA /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				56417EF42A35EABA007623DA /* Words.swift */,
+			);
+			path = Words;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56417ED52A35EA89007623DA /* PiggyBankApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56417EE82A35EA8A007623DA /* Build configuration list for PBXNativeTarget "PiggyBankApp" */;
+			buildPhases = (
+				56417ED22A35EA89007623DA /* Sources */,
+				56417ED32A35EA89007623DA /* Frameworks */,
+				56417ED42A35EA89007623DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PiggyBankApp;
+			packageProductDependencies = (
+				5688E8522A36178E005750FC /* Realm */,
+				5688E8542A36178E005750FC /* RealmSwift */,
+			);
+			productName = PiggyBankApp;
+			productReference = 5688E8502A361624005750FC /* PiggyBankApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56417ECE2A35EA89007623DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					56417ED52A35EA89007623DA = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 56417ED12A35EA89007623DA /* Build configuration list for PBXProject "PiggyBankApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 56417ECD2A35EA89007623DA;
+			packageReferences = (
+				5688E8512A36178E005750FC /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
+			productRefGroup = 56417ECD2A35EA89007623DA;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56417ED52A35EA89007623DA /* PiggyBankApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56417ED42A35EA89007623DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56417EF02A35EAA6007623DA /* Polka.ttf in Resources */,
+				56417EEF2A35EAA6007623DA /* MullerBold.ttf in Resources */,
+				56417EF12A35EAA6007623DA /* MullerMedium.ttf in Resources */,
+				56417EDE2A35EA8A007623DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56417ED22A35EA89007623DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56417F022A35EAC7007623DA /* MainScreen.swift in Sources */,
+				56417F002A35EAC7007623DA /* MenuScreen.swift in Sources */,
+				56417EFA2A35EABA007623DA /* ViewModel.swift in Sources */,
+				56417EF92A35EABA007623DA /* Words.swift in Sources */,
+				56417EE32A35EA8A007623DA /* Model.swift in Sources */,
+				56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */,
+				56417F012A35EAC7007623DA /* GaolScreen.swift in Sources */,
+				56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		56417EE62A35EA8A007623DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		56417EE72A35EA8A007623DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56417EE92A35EA8A007623DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiggyBankApp/PiggyBankApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PiggyBankApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4QHK2U5ZRN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PiggyBankApp/Model/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gera.PiggyBankApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56417EEA2A35EA8A007623DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiggyBankApp/PiggyBankApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PiggyBankApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4QHK2U5ZRN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PiggyBankApp/Model/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gera.PiggyBankApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56417ED12A35EA89007623DA /* Build configuration list for PBXProject "PiggyBankApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56417EE62A35EA8A007623DA /* Debug */,
+				56417EE72A35EA8A007623DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56417EE82A35EA8A007623DA /* Build configuration list for PBXNativeTarget "PiggyBankApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56417EE92A35EA8A007623DA /* Debug */,
+				56417EEA2A35EA8A007623DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5688E8512A36178E005750FC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 10.40.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5688E8522A36178E005750FC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5688E8512A36178E005750FC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		5688E8542A36178E005750FC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5688E8512A36178E005750FC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 56417ECE2A35EA89007623DA /* Project object */;
+}

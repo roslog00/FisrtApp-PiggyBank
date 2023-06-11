@@ -1,0 +1,84 @@
+//
+//  GaolScreen.swift
+//  PiggyBank
+//
+//  Created by Вероника Гера on 11.06.2023.
+//
+
+import SwiftUI
+
+struct NewGoal: View {
+    var body: some View {
+        ZStack(alignment: .top){
+            ExtractedView()
+            
+            ExtractedView2()
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
+        //Main ZStack is ended
+    }
+}
+
+struct NewGoal_Previews: PreviewProvider {
+    static var previews: some View {
+        NewGoal()
+    }
+}
+
+struct ExtractedView: View {
+    var body: some View {
+        GeometryReader(content: { geometry in
+            let size = geometry.size
+            ZStack(alignment: .top){
+                Image("backgroundColor")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                Image("sun")
+                    .padding(.leading, size.width * 0.63)
+                    .padding(.top, size.width * 0.165)
+                Image("cloud 1 main screen")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.top, size.height * 0)
+                Image("BigCloud")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .padding(.top, size.height * 0.45)
+            }
+            
+        }).ignoresSafeArea(.all)
+    }
+}
+
+
+struct ExtractedView2: View {
+    var body: some View {
+        GeometryReader(content: { geometry in
+            let size = geometry.size
+            VStack{
+                HStack(spacing: size.width * (0.13)){
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image("back")
+                            .resizable()
+                            .frame(maxWidth: size.width / 10, maxHeight: size.width / 11)
+                            .padding(.top, size.height * (-0.01))
+                    })
+                    
+                    Text("New Goal")
+                        .font(.custom("Polka", size: size.width / 9))
+                        .foregroundStyle(.white)
+                }.padding(.top, size.height * (-0.24))
+                 .padding(.leading, size.width * (-0.2))
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("OK")
+                        .font(.custom("Polka", size: size.width / 7))
+                        .foregroundColor(Color("2670AD"))
+                        .padding(.top, size.height * 0.4)
+                })
+                
+            }.frame(minWidth: size.width * 1, minHeight: size.height * 1)
+        })
+    }
+}
