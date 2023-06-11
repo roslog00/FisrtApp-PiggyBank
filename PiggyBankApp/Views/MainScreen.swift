@@ -11,6 +11,7 @@ import SwiftUI
 struct NewMainScreen: View {
     
     @State var menuToggle = false
+    @State var plusGoals = false
     
     var body: some View {
         GeometryReader{ geometry in
@@ -102,10 +103,11 @@ struct NewMainScreen: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                             Button(action: {
+                                plusGoals.toggle()
                             }, label: {
                                 Image("plus button")
-                            })
-                            .padding(.bottom, size.height * (-0.07))
+                            }).padding(.bottom, size.height * (-0.07))
+                                .fullScreenCover(isPresented: $plusGoals){ NewGoal() }
                         }
                     }
                     

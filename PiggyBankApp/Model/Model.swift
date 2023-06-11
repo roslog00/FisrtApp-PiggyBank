@@ -26,11 +26,30 @@ class Person: Object {
     
 }
 
-enum Currency: String {
-    case dollar = "dollar"
-    case euro = "euro"
-    case yuan = "yuan"
-    case yen = "yen"
-    case pounds = "pounds"
-    case rubles = "rubles"
+class PersonsGoals: Object {
+    
+    @objc dynamic var goalsNames = ""
+    @objc dynamic var goalsCosts = ""
+    
+}
+
+enum Currency: Identifiable, CaseIterable {
+    var id: Self { self }
+    var description: String {
+        switch self {
+        case .dollar: return "dollar"
+        case .euro: return "euro"
+        case .pounds: return "pounds"
+        case .yuan: return "yuan"
+        case .yen: return "yen"
+        case .rubles: return "rubles"
+        }
+    }
+    
+    case dollar
+    case euro
+    case yuan
+    case yen
+    case pounds
+    case rubles
 }

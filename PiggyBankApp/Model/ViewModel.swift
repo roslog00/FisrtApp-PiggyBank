@@ -13,8 +13,9 @@ class User: ObservableObject{
     
     let realm = try! Realm(configuration: .defaultConfiguration)
     
-   
+    let goalsOfPerson = PersonsGoals()
     let person = Person()
+    let currency1 = Currency.allCases
     
     @Published var nameOfPerson = ""
     @Published var currency = ""
@@ -22,11 +23,24 @@ class User: ObservableObject{
     @Published var goalsCost = ""
     
     func addNameOfPerson (_ nameOfPerson1: String) {
-        save(usersName: person, nameOfPerson1)
+        saveName(usersName: person, nameOfPerson1)
     }
     
+    func saveGoalsName(usersGoalsName: PersonsGoals, goalsName: String) {
+        try! realm.write {
+            usersGoalsName.goalsNames = goalsName
+            realm.add(usersGoalsName)
+        }
+    }
     
-    func save (usersName: Person,_ name: String) {
+    func saveGoalsCost(usersGoalsCost: PersonsGoals, goalsCost: String) {
+        try! realm.write {
+            usersGoalsCost.goalsCosts = goalsCost
+            realm.add(usersGoalsCost)
+        }
+    }
+    
+    func saveName(usersName: Person,_ name: String) {
         try! realm.write{
             usersName.name = nameOfPerson
             realm.add(usersName)

@@ -59,6 +59,7 @@ struct GeometryReader1: View {
                                         .font(.custom("MullerMedium", size: size.width / 13 ))
                                 }.disabled(nameDisableToggle)
                                     .frame(maxWidth: size.width * (0.48))
+                                    .font(.custom("MullerBold", size: size.width / 13 ))
                                 
                                 Button(action: {
                                     name.addNameOfPerson(name.nameOfPerson)
