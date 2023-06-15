@@ -7,10 +7,13 @@
 
 
 import SwiftUI
+import RealmSwift
 
 struct NewMainScreen: View {
     
-    var dataBridge = User()
+    
+    @ObservedResults(PersonsGoals.self) var personGoals
+    @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
     
@@ -31,38 +34,34 @@ struct NewMainScreen: View {
                 
                 ZStack{
                     ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(0..<(dataBridge.countOfGoals() + 1)) { line in
+                        ForEach(personGoals, id: \.id) { line in
                             ZStack(alignment: .topTrailing){
-                                if line >  10 {
-                                    Image("bad solution")
-                                } else{
-                                    Button(action: {
+                                Button(action: {
+                                    
+                                }, label: {
+                                    ZStack(alignment: .topTrailing){
+                                        Image("card bg")
+                                            .resizable()
+                                            .padding(.horizontal, size.width * 0.07)
                                         
-                                    }, label: {
-                                        ZStack(alignment: .topTrailing){
-                                            Image("card bg")
-                                                .resizable()
-                                                .padding(.horizontal, size.width * 0.07)
-                    
-                                            Text(dataBridge.obtainPersonsGoalsName())
-                                                .lineLimit(1)
-                                                .foregroundColor(Color("2670AD"))
-                                                .font(.custom("MullerMedium", size: size.width / 13))
-                                                .padding(.trailing, size.width * (0.7))
-                                                .padding(.top, size.height * (0.028))
-                                            Text(dataBridge.obtainPersonsGoalsCost() + "$")
-                                                .foregroundColor(Color("2670AD"))
-                                                .font(.custom("MullerBold",size: size.width / 7.2))
-                                                .padding(.trailing, size.width * (0.63))
-                                                .padding(.top, size.height * (0.065))
-                                            Text(Words().massiveOfNiceWords.randomElement()!)
-                                                .foregroundColor(Color("DEF0FF"))
-                                                .font(.custom("Polka", size: size.width / 7.2))
-                                                .padding(.trailing, size.width * (0.13))
-                                                .padding(.top, size.height * (0.065))
-                                        }
-                                    })
-                                }
+                                        Text("\(line.goalsNames)")
+                                            .lineLimit(1)
+                                            .foregroundColor(Color("2670AD"))
+                                            .font(.custom("MullerMedium", size: size.width / 13))
+                                            .padding(.trailing, size.width * (0.7))
+                                            .padding(.top, size.height * (0.028))
+                                        Text(line.goalsCosts + "$")
+                                            .foregroundColor(Color("2670AD"))
+                                            .font(.custom("MullerBold",size: size.width / 7.2))
+                                            .padding(.trailing, size.width * (0.63))
+                                            .padding(.top, size.height * (0.065))
+                                        Text(Words().massiveOfNiceWords.randomElement()!)
+                                            .foregroundColor(Color("DEF0FF"))
+                                            .font(.custom("Polka", size: size.width / 7.2))
+                                            .padding(.trailing, size.width * (0.13))
+                                            .padding(.top, size.height * (0.065))
+                                    }
+                                })
                             }
                             Spacer(minLength: size.height * 0.02)
                         }
@@ -87,13 +86,17 @@ struct NewMainScreen: View {
                                     .scaledToFill()
                                     .minimumScaleFactor(0.5)
                                 
-                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                Button(action: {
+                                    finishedMenuToggle.toggle()
+                                }, label: {
                                     Image("finished goals icon")
                                         .resizable()
                                         .frame(maxWidth: size.width * (0.07), maxHeight: size.width * (0.08))
                                         .padding(.trailing, size.width * (-0.001))
                                         .padding(.top, size.height * (-0.005))
                                     
+                                }).fullScreenCover(isPresented: $finishedMenuToggle, content: {
+                                    FinishedGoals()
                                 })
                             }
                         }

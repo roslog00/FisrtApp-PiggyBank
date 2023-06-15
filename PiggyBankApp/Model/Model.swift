@@ -19,18 +19,24 @@ final class Item {
 }
 
 
-class Person: Object {
+class Person: Object, Identifiable {
     
-    @objc dynamic var name = ""
-    @objc dynamic var currency = ""
+    @Persisted var personsName = ""
+    @Persisted var personsCurrency = ""
     
 }
 
-class PersonsGoals: Object {
+class PersonsGoals: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var goalsNames = ""
+    @Persisted var goalsCosts = ""
+
     
-    @objc dynamic var goalsNames = ""
-    @objc dynamic var goalsCosts = ""
     
+    override class func primaryKey() -> String? {
+        "id"
+    }
+
 }
 
 enum Currency: Identifiable, CaseIterable {

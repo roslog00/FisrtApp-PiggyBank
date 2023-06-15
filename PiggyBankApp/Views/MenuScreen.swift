@@ -5,10 +5,12 @@
 //  Created by Вероника Гера on 11.06.2023.
 //
 import SwiftUI
+import RealmSwift
 
 struct GeometryReader1: View {
     
-    @ObservedObject var name = User()
+    @ObservedResults(Person.self) var person
+    @State var name = ""
     @State var nameDisableToggle = true
     @State var backToggle = false
     
@@ -54,16 +56,24 @@ struct GeometryReader1: View {
                                     .foregroundColor(Color("2670AD"))
                                     .padding(.leading, size.width * (-0.01))
                                 
-                                TextField(text: $name.nameOfPerson) {
-                                    Text(name.obtainUsers())
+                                TextField(text: $name) {
+                                    Text("\(name)")
                                         .font(.custom("MullerMedium", size: size.width / 13 ))
                                 }.disabled(nameDisableToggle)
                                     .frame(maxWidth: size.width * (0.48))
                                     .font(.custom("MullerBold", size: size.width / 13 ))
                                 
                                 Button(action: {
-                                    name.addNameOfPerson(name.nameOfPerson)
                                     nameDisableToggle.toggle()
+                                    print(Realm.Configuration.defaultConfiguration.fileURL!)
+                                    if name.isEmpty {
+                                        
+                                    } else {
+                                       let personData = Person()
+                                        personData.personsName = name
+                                        
+                                        $person.append(personData)
+                                    }
                                 }, label: {
                                     Image("pencil")
                                         .padding(.trailing, size.width * (0.01))
