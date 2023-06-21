@@ -9,11 +9,12 @@ import RealmSwift
 
 struct GeometryReader1: View {
     
-    @ObservedResults(Person.self) var person
-    @State var name = ""
+    @Environment(\.dismiss) var dismiss
+    @AppStorage("name") var nameOfStorage = ""
+    @AppStorage("currency") var currency : Currency = .dollar
+    @State var sheetShown = false
     @State var nameDisableToggle = true
     @State var backToggle = false
-    
     
     var body: some View {
         GeometryReader{ proxy in
@@ -56,28 +57,22 @@ struct GeometryReader1: View {
                                     .foregroundColor(Color("2670AD"))
                                     .padding(.leading, size.width * (-0.01))
                                 
-                                TextField(text: $name) {
-                                    Text("\(name)")
-                                        .font(.custom("MullerMedium", size: size.width / 13 ))
+                                TextField(text: $nameOfStorage) {
+                                    Text(nameOfStorage)
+                                        .font(.custom("MullerMedium", size: size.width / 19 ))
                                 }.disabled(nameDisableToggle)
                                     .frame(maxWidth: size.width * (0.48))
-                                    .font(.custom("MullerBold", size: size.width / 13 ))
+                                    .font(.custom("MullerBold", size: size.width / 16 ))
+                                    .foregroundColor(Color("2670AD"))
                                 
                                 Button(action: {
                                     nameDisableToggle.toggle()
                                     print(Realm.Configuration.defaultConfiguration.fileURL!)
-                                    if name.isEmpty {
-                                        
-                                    } else {
-                                       let personData = Person()
-                                        personData.personsName = name
-                                        
-                                        $person.append(personData)
-                                    }
                                 }, label: {
                                     Image("pencil")
                                         .padding(.trailing, size.width * (0.01))
                                 })
+                                
                             }
                         }
                         
@@ -94,13 +89,66 @@ struct GeometryReader1: View {
                                     .font(.custom("MullerMedium", size: 20))
                                     .foregroundColor(Color("2670AD"))
                                     .padding(.trailing, size.width * (0.03))
+                                
+                                
                                 Button (action: {
+                                    sheetShown.toggle()
                                 }, label: {
-                                    Image("$")
+                                    Image(systemName: currency.rawValue)
+                                        .font(.custom("MullerMedium", size: size.width * (0.05)))
+                                        .foregroundColor(Color("2670AD"))
                                         .padding(.leading, size.width * (0.38))
                                     Image("Currency Choise Arrow")
                                         .padding(.leading, size.width * (-0.02))
-                                })
+                                }).sheet(isPresented: $sheetShown) {
+                                    ZStack {
+                                        Color("7EBEF3")
+                                        VStack(spacing: 10) {
+                                            
+                                            Button(action: {
+                                                currency = Currency.dollar
+                                            }, label: {
+                                                Image(systemName: "dollarsign")
+                                                    .foregroundStyle(.white)
+                                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                            })
+                                            
+                                            Button(action: {
+                                                currency = Currency.euro
+                                            }, label: {
+                                                Image(systemName: "eurosign")
+                                                    .foregroundStyle(.white)
+                                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                            })
+                                            
+                                            Button(action: {
+                                                currency = Currency.yenAndYuan
+                                            }, label: {
+                                                Image(systemName: "yensign")
+                                                    .foregroundStyle(.white)
+                                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                            })
+                                            
+                                            Button(action: {
+                                                currency = Currency.pounds
+                                            }, label: {
+                                                Image(systemName: "sterlingsign")
+                                                    .foregroundStyle(.white)
+                                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                            })
+                                            
+                                            Button(action: {
+                                                currency = Currency.rubles
+                                            }, label: {
+                                                Image(systemName: "rublesign")
+                                                    .foregroundStyle(.white)
+                                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                            })
+                                        }.presentationDetents([.fraction(0.4), .height(size.height * (0.5))])
+                                            .background(Color("7EBEF3"))
+                                    }.ignoresSafeArea(.all)
+                                }
+                                
                             }
                         }
                         

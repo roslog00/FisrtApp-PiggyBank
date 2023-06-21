@@ -16,6 +16,7 @@ struct NewMainScreen: View {
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
+    @State var goalToggle = false
     
     var body: some View {
         GeometryReader{ geometry in
@@ -37,7 +38,9 @@ struct NewMainScreen: View {
                         ForEach(personGoals, id: \.id) { line in
                             ZStack(alignment: .topTrailing){
                                 Button(action: {
-                                    
+                                    goalToggle.toggle()
+                                    let getData = RealmManager()
+                                    getData.getData(id: line.id)
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
                                         Image("card bg")
@@ -61,7 +64,7 @@ struct NewMainScreen: View {
                                             .padding(.trailing, size.width * (0.13))
                                             .padding(.top, size.height * (0.065))
                                     }
-                                })
+                                }).fullScreenCover(isPresented: $goalToggle){ GoalsScreen() }
                             }
                             Spacer(minLength: size.height * 0.02)
                         }
