@@ -5,6 +5,7 @@
 //  Created by Вероника Гера on 21.06.2023.
 //
 import SwiftUI
+import RealmSwift
 
 struct GoalsScreen: View {
     
@@ -86,6 +87,10 @@ struct GoalsScreen_Preview: PreviewProvider {
 }
 
 struct ExtractedView: View {
+    
+    @ObservedResults(PersonsGoals.self) var personGoals
+    
+    
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
@@ -100,7 +105,7 @@ struct ExtractedView: View {
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                     })
                     
-                    Text("iPhone 14 Pro Max")
+                    Text("dw")
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)

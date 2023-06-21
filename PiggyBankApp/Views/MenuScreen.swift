@@ -10,10 +10,9 @@ import RealmSwift
 struct GeometryReader1: View {
     
     @ObservedResults(Person.self) var person
-    @State var name = ""
+    @AppStorage("name") var nameOfStorage = ""
     @State var nameDisableToggle = true
     @State var backToggle = false
-    
     
     var body: some View {
         GeometryReader{ proxy in
@@ -56,8 +55,8 @@ struct GeometryReader1: View {
                                     .foregroundColor(Color("2670AD"))
                                     .padding(.leading, size.width * (-0.01))
                                 
-                                TextField(text: $name) {
-                                    Text("\(name)")
+                                TextField(text: $nameOfStorage) {
+                                    Text(nameOfStorage)
                                         .font(.custom("MullerMedium", size: size.width / 13 ))
                                 }.disabled(nameDisableToggle)
                                     .frame(maxWidth: size.width * (0.48))
@@ -66,14 +65,6 @@ struct GeometryReader1: View {
                                 Button(action: {
                                     nameDisableToggle.toggle()
                                     print(Realm.Configuration.defaultConfiguration.fileURL!)
-                                    if name.isEmpty {
-                                        
-                                    } else {
-                                       let personData = Person()
-                                        personData.personsName = name
-                                        
-                                        $person.append(personData)
-                                    }
                                 }, label: {
                                     Image("pencil")
                                         .padding(.trailing, size.width * (0.01))
