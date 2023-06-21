@@ -6,17 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 import RealmSwift
 
-@Model
-final class Item {
-    var timestamp: Date
-    
-    init(timestamp: Date) {
-        self.timestamp = timestamp
-    }
-}
 
 
 class Person: Object, Identifiable {

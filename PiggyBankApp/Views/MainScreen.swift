@@ -11,8 +11,9 @@ import RealmSwift
 
 struct NewMainScreen: View {
     
-    
     @ObservedResults(PersonsGoals.self) var personGoals
+    @State var goalsName = ""
+    @State var goalsCost = ""
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
@@ -37,7 +38,8 @@ struct NewMainScreen: View {
                         ForEach(personGoals, id: \.id) { line in
                             ZStack(alignment: .topTrailing){
                                 Button(action: {
-                                    
+                                    goalsName = line.goalsNames
+                                    goalsCost = line.goalsCosts
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
                                         Image("card bg")
