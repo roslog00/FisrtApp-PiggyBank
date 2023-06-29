@@ -39,6 +39,8 @@ class PersonsGoals: Object, ObjectKeyIdentifiable {
 
 }
 
+
+
 enum Currency: Identifiable, CaseIterable {
     var id: Self { self }
     var description: String {
