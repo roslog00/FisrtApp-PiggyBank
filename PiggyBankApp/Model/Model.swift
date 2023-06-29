@@ -18,20 +18,13 @@ final class Item {
     }
 }
 
-
-class Person: Object, Identifiable {
-    
-    @Persisted var personsName = ""
-    @Persisted var personsCurrency = ""
-    
-}
-
 class PersonsGoals: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var goalsNames = ""
     @Persisted var goalsCosts = ""
-
-    
+    @Persisted var savedMoney = ""
+    @Persisted var completedGoal = false
+    @Persisted var Date: Date
     
     override class func primaryKey() -> String? {
         "id"
@@ -41,23 +34,12 @@ class PersonsGoals: Object, ObjectKeyIdentifiable {
 
 
 
-enum Currency: Identifiable, CaseIterable {
-    var id: Self { self }
-    var description: String {
-        switch self {
-        case .dollar: return "dollar"
-        case .euro: return "euro"
-        case .pounds: return "pounds"
-        case .yuan: return "yuan"
-        case .yen: return "yen"
-        case .rubles: return "rubles"
-        }
-    }
+enum Currency: String, CaseIterable, PersistableEnum{
     
-    case dollar
-    case euro
-    case yuan
-    case yen
-    case pounds
-    case rubles
+    case dollar = "dollarsign"
+    case euro = "eurosign"
+    case yenAndYuan = "yensign"
+    case pounds = "sterlingsign"
+    case rubles = "rublesign"
+    
 }
