@@ -24,22 +24,10 @@ class PersonsGoals: Object, ObjectKeyIdentifiable {
     @Persisted var goalsCosts = ""
     @Persisted var savedMoney = ""
     @Persisted var completedGoal = false
-    @Persisted var Date: Date
+    @Persisted var date: Date
     
     override class func primaryKey() -> String? {
         "id"
     }
 
-}
-
-
-
-enum Currency: String, CaseIterable, PersistableEnum{
-    
-    case dollar = "dollarsign"
-    case euro = "eurosign"
-    case yenAndYuan = "yensign"
-    case pounds = "sterlingsign"
-    case rubles = "rublesign"
-    
 }

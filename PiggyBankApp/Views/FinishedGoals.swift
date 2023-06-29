@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct FinishedGoals: View {
 
+    @ObservedResults(PersonsGoals.self) var personGoals
+    @ObservedObject var realmManager = RealmManager()
     @State var backToggle = false
     
     var body: some View {
@@ -23,7 +26,7 @@ struct FinishedGoals: View {
             
             ExtractedView5()
             
-            if 0 == 0 {
+            if  realmManager.allDataOfPersonsGoals.isEmpty {
                 GeometryReader { geometry in
                     let size = geometry.size
                     
@@ -40,7 +43,10 @@ struct FinishedGoals: View {
                         .padding(.top, size.height * (0.22))
                         .padding(.leading, size.width * (0.1))
                 }
+            } else {
+                
             }
+            
             
             
         }

@@ -20,7 +20,7 @@ struct GoalsScreen: View {
                     .resizable()
                     .frame(minWidth: size.width * (1), minHeight: size.height * (1))
                 
-                ExtractedView()
+                ExtractedView4()
                 
                 ZStack (alignment: .trailing){
                     
@@ -88,7 +88,7 @@ struct GoalsScreen_Preview: PreviewProvider {
     }
 }
 
-struct ExtractedView: View {
+struct ExtractedView4: View {
     
     @ObservedObject var arrayOfItem = RealmManager()
     @State var backToggle = false
@@ -107,7 +107,7 @@ struct ExtractedView: View {
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                     }).fullScreenCover(isPresented: $backToggle, content: { NewMainScreen()})
                     
-                    Text(arrayOfItem.goalsName)
+                    Text(arrayOfItem.getNameWithId(id: arrayOfItem.id))
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
@@ -115,11 +115,11 @@ struct ExtractedView: View {
                 }.padding(.top, size.height * (0.08))
                 
                 HStack(spacing: size.width * (-0.001)){
-                    Text("\(arrayOfItem.savedMoney) $")
+                    Text(" $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerBold", size: size.width / 7))
                     
-                    Text("/  \(arrayOfItem.goalsCosts) $")
+                    Text("/  $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerMedium", size: size.width / 10))
                 }.padding(.leading, size.width * (0.04))
