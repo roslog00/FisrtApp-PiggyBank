@@ -9,6 +9,8 @@ import RealmSwift
 
 struct GoalsScreen: View {
     
+    @ObservedResults(PersonsGoals.self) var personsGoals
+    
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
@@ -88,8 +90,8 @@ struct GoalsScreen_Preview: PreviewProvider {
 
 struct ExtractedView: View {
     
-    @ObservedResults(PersonsGoals.self) var personGoals
-    
+    @ObservedObject var arrayOfItem = RealmManager()
+    @State var backToggle = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -98,14 +100,14 @@ struct ExtractedView: View {
             VStack(alignment: .leading, spacing: size.height * (0.04)){
                 HStack(alignment: .center, spacing: size.width * (0.11)){
                     Button(action: {
-                        
+                        backToggle.toggle()
                     }, label: {
                         Image("back")
                             .resizable()
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
-                    })
+                    }).fullScreenCover(isPresented: $backToggle, content: { NewMainScreen()})
                     
-                    Text("dw")
+                    Text(arrayOfItem.goalsName)
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
@@ -113,11 +115,11 @@ struct ExtractedView: View {
                 }.padding(.top, size.height * (0.08))
                 
                 HStack(spacing: size.width * (-0.001)){
-                    Text("50" + "$")
+                    Text("\(arrayOfItem.savedMoney) $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerBold", size: size.width / 7))
                     
-                    Text("/" + "1300" + "$")
+                    Text("/  \(arrayOfItem.goalsCosts) $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerMedium", size: size.width / 10))
                 }.padding(.leading, size.width * (0.04))

@@ -70,6 +70,7 @@ struct NewGoal: View {
                             let newGoal = PersonsGoals()
                             newGoal.goalsNames = newGoalsName
                             newGoal.goalsCosts = newGoaslCost
+                            newGoal.savedMoney = "0"
                             
                             $personsGoals.append(newGoal)
                         }
