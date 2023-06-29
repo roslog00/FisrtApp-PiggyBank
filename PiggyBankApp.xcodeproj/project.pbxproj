@@ -10,6 +10,7 @@
 		56014C4D2A3B1E6D0097986A /* FinishedGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */; };
 		562F10032A43328C00D0CB39 /* Goals'sScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F10022A43328C00D0CB39 /* Goals'sScreen.swift */; };
 		562F10052A4332A500D0CB39 /* PreviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F10042A4332A500D0CB39 /* PreviewScreen.swift */; };
+		562F10072A433C1F00D0CB39 /* AddCashToGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F10062A433C1F00D0CB39 /* AddCashToGoal.swift */; };
 		56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56366A202A35EF77007866E6 /* ColorExtensions.swift */; };
 		56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */; };
 		56417EDE2A35EA8A007623DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56417EDD2A35EA8A007623DA /* Assets.xcassets */; };
@@ -18,18 +19,19 @@
 		56417EF02A35EAA6007623DA /* Polka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56417EED2A35EAA6007623DA /* Polka.ttf */; };
 		56417EF12A35EAA6007623DA /* MullerMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56417EEE2A35EAA6007623DA /* MullerMedium.ttf */; };
 		56417EF92A35EABA007623DA /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EF42A35EABA007623DA /* Words.swift */; };
-		56417EFA2A35EABA007623DA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EF52A35EABA007623DA /* ViewModel.swift */; };
 		56417F002A35EAC7007623DA /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFD2A35EAC7007623DA /* MenuScreen.swift */; };
 		56417F012A35EAC7007623DA /* GaolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFE2A35EAC7007623DA /* GaolScreen.swift */; };
 		56417F022A35EAC7007623DA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417EFF2A35EAC7007623DA /* MainScreen.swift */; };
 		5688E8532A36178E005750FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5688E8522A36178E005750FC /* Realm */; };
 		5688E8552A36178E005750FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5688E8542A36178E005750FC /* RealmSwift */; };
+		56ECD2A22A3C92C40051AC3F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECD2A12A3C92C40051AC3F /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGoals.swift; sourceTree = "<group>"; };
 		562F10022A43328C00D0CB39 /* Goals'sScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals'sScreen.swift"; sourceTree = "<group>"; };
 		562F10042A4332A500D0CB39 /* PreviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreen.swift; sourceTree = "<group>"; };
+		562F10062A433C1F00D0CB39 /* AddCashToGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCashToGoal.swift; sourceTree = "<group>"; };
 		56366A202A35EF77007866E6 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankAppApp.swift; sourceTree = "<group>"; };
 		56417EDD2A35EA8A007623DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,11 +43,11 @@
 		56417EED2A35EAA6007623DA /* Polka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Polka.ttf; sourceTree = "<group>"; };
 		56417EEE2A35EAA6007623DA /* MullerMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MullerMedium.ttf; sourceTree = "<group>"; };
 		56417EF42A35EABA007623DA /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
-		56417EF52A35EABA007623DA /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		56417EFD2A35EAC7007623DA /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		56417EFE2A35EAC7007623DA /* GaolScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaolScreen.swift; sourceTree = "<group>"; };
 		56417EFF2A35EAC7007623DA /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		5688E8502A361624005750FC /* PiggyBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ECD2A12A3C92C40051AC3F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,7 @@
 				56417F232A35EB30007623DA /* Words */,
 				56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */,
 				56417EE22A35EA8A007623DA /* Model.swift */,
-				56417EF52A35EABA007623DA /* ViewModel.swift */,
+				56ECD2A12A3C92C40051AC3F /* RealmManager.swift */,
 				56417EE52A35EA8A007623DA /* Info.plist */,
 			);
 			path = Model;
@@ -130,6 +132,7 @@
 				56014C4C2A3B1E6D0097986A /* FinishedGoals.swift */,
 				562F10022A43328C00D0CB39 /* Goals'sScreen.swift */,
 				562F10042A4332A500D0CB39 /* PreviewScreen.swift */,
+				562F10062A433C1F00D0CB39 /* AddCashToGoal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,8 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56417F022A35EAC7007623DA /* MainScreen.swift in Sources */,
+				56ECD2A22A3C92C40051AC3F /* RealmManager.swift in Sources */,
 				56417F002A35EAC7007623DA /* MenuScreen.swift in Sources */,
-				56417EFA2A35EABA007623DA /* ViewModel.swift in Sources */,
 				56417EF92A35EABA007623DA /* Words.swift in Sources */,
 				56417EE32A35EA8A007623DA /* Model.swift in Sources */,
 				56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */,
@@ -231,6 +234,7 @@
 				562F10052A4332A500D0CB39 /* PreviewScreen.swift in Sources */,
 				562F10032A43328C00D0CB39 /* Goals'sScreen.swift in Sources */,
 				56014C4D2A3B1E6D0097986A /* FinishedGoals.swift in Sources */,
+				562F10072A433C1F00D0CB39 /* AddCashToGoal.swift in Sources */,
 				56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
