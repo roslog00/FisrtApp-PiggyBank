@@ -14,6 +14,7 @@ struct PiggyBankAppApp: App {
     var body: some Scene {
         WindowGroup {
             NewMainScreen()
+                .environmentObject(RealmManager())
         }
         .modelContainer(for: Item.self)
     }

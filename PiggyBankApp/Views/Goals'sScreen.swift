@@ -10,6 +10,7 @@ import RealmSwift
 struct GoalsScreen: View {
     
     @ObservedResults(PersonsGoals.self) var personsGoals
+    @State var addCashToggle = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,7 +21,7 @@ struct GoalsScreen: View {
                     .resizable()
                     .frame(minWidth: size.width * (1), minHeight: size.height * (1))
                 
-                ExtractedView()
+                ExtractedView4()
                 
                 ZStack (alignment: .trailing){
                     
@@ -35,7 +36,7 @@ struct GoalsScreen: View {
                         .offset(x: size.width * (-0.2), y: size.height * (0.02))
                     
                     Button(action: {
-                        
+                        addCashToggle.toggle()
                     }, label: {
                         ZStack {
                             Image("sun")
@@ -46,6 +47,9 @@ struct GoalsScreen: View {
                                 .frame(width: size.width * (0.17), height: size.width * (0.17))
                         }
                     }).padding(.bottom, size.height * (0.07))
+                        .fullScreenCover(isPresented: $addCashToggle, content: {
+                            AddMoneyScreen()
+                        })
                     
                 }.frame(maxWidth: .infinity, maxHeight: size.height * (1))
                 
@@ -85,19 +89,22 @@ struct GoalsScreen: View {
 struct GoalsScreen_Preview: PreviewProvider {
     static var previews: some View {
         GoalsScreen()
+            .environmentObject(RealmManager())
     }
 }
 
-struct ExtractedView: View {
+
+struct ExtractedView4: View {
     
-    @ObservedObject var arrayOfItem = RealmManager()
+    @EnvironmentObject var arrayOfItem: RealmManager
+    //@ObservedObject var realmManagerDevelop = RealmManagerDevelop()
     @State var backToggle = false
     
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
             
-            VStack(alignment: .leading, spacing: size.height * (0.04)){
+            LazyVStack(alignment: .leading, spacing: size.height * (0.04)){
                 HStack(alignment: .center, spacing: size.width * (0.11)){
                     Button(action: {
                         backToggle.toggle()
@@ -107,7 +114,7 @@ struct ExtractedView: View {
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                     }).fullScreenCover(isPresented: $backToggle, content: { NewMainScreen()})
                     
-                    Text(arrayOfItem.goalsName)
+                    Text(UserDefaults.standard.string(forKey: "name") ?? "name")
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
@@ -115,11 +122,11 @@ struct ExtractedView: View {
                 }.padding(.top, size.height * (0.08))
                 
                 HStack(spacing: size.width * (-0.001)){
-                    Text("\(arrayOfItem.savedMoney) $")
+                    Text(" \(UserDefaults.standard.string(forKey: "savedMoney") ?? "3")$")
                         .foregroundStyle(.white)
                         .font(.custom("MullerBold", size: size.width / 7))
                     
-                    Text("/  \(arrayOfItem.goalsCosts) $")
+                    Text("/ \(UserDefaults.standard.string(forKey: "cost") ?? "3") $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerMedium", size: size.width / 10))
                 }.padding(.leading, size.width * (0.04))

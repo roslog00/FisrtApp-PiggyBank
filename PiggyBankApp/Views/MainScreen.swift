@@ -11,8 +11,9 @@ import RealmSwift
 
 struct NewMainScreen: View {
     
-    
-    @ObservedResults(PersonsGoals.self) var personGoals
+    @ObservedResults(PersonsGoals.self) var personsGoals
+    @EnvironmentObject var realmManager: RealmManager
+    @State var currencyOfPerson = GeometryReader1()
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
@@ -35,29 +36,40 @@ struct NewMainScreen: View {
                 
                 ZStack{
                     ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(personGoals, id: \.id) { line in
+                        ForEach(personsGoals, id: \.id) { line in
                             ZStack(alignment: .topTrailing){
                                 Button(action: {
                                     goalToggle.toggle()
-                                    let getData = RealmManager()
-                                    getData.getData(id: line.id)
+                                    UserDefaults.standard.setValue(line.goalsNames, forKey: "name")
+                                    UserDefaults.standard.setValue(line.goalsCosts, forKey: "cost")
+                                    UserDefaults.standard.setValue(line.savedMoney, forKey: "savedMoney")
+                                    UserDefaults.standard.setValue(line.date, forKey: "date")
+                                    
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
                                         Image("card bg")
                                             .resizable()
                                             .padding(.horizontal, size.width * 0.07)
+                                    
                                         
-                                        Text("\(line.goalsNames)")
+                                        Text(line.goalsNames)
                                             .lineLimit(1)
                                             .foregroundColor(Color("2670AD"))
                                             .font(.custom("MullerMedium", size: size.width / 13))
                                             .padding(.trailing, size.width * (0.7))
                                             .padding(.top, size.height * (0.028))
-                                        Text(line.goalsCosts + "$")
-                                            .foregroundColor(Color("2670AD"))
-                                            .font(.custom("MullerBold",size: size.width / 7.2))
-                                            .padding(.trailing, size.width * (0.63))
-                                            .padding(.top, size.height * (0.065))
+                                        HStack(spacing: size.width * (0.0000)) {
+                                            Text(line.goalsCosts)
+                                                .lineLimit(1)
+                                                .foregroundColor(Color("2670AD"))
+                                                .font(.custom("MullerBold",size: size.width / 7.2))
+                                            Image(systemName: currencyOfPerson.currency)
+                                                .foregroundColor(Color("2670AD"))
+                                                .font(.custom("MullerBold",size: size.width / 7.2))
+                                            
+                                        }.padding(.trailing, size.width * (0.63))
+                                        .padding(.top, size.height * (0.065))
+                                        
                                         Text(Words().massiveOfNiceWords.randomElement()!)
                                             .foregroundColor(Color("DEF0FF"))
                                             .font(.custom("Polka", size: size.width / 7.2))
@@ -127,5 +139,6 @@ struct NewMainScreen: View {
 struct NewMainScreen_Previews: PreviewProvider {
     static var previews: some View {
         NewMainScreen()
+            .environmentObject(RealmManager())
     }
 }

@@ -7,11 +7,12 @@
 import SwiftUI
 import RealmSwift
 
+
 struct GeometryReader1: View {
     
     @Environment(\.dismiss) var dismiss
     @AppStorage("name") var nameOfStorage = ""
-    @AppStorage("currency") var currency : Currency = .dollar
+    @AppStorage("currency", store: UserDefaults(suiteName: "group.com.currency.unwrap")) var currency: String = Currency.dollar.rawValue
     @State var sheetShown = false
     @State var nameDisableToggle = true
     @State var backToggle = false
@@ -94,7 +95,7 @@ struct GeometryReader1: View {
                                 Button (action: {
                                     sheetShown.toggle()
                                 }, label: {
-                                    Image(systemName: currency.rawValue)
+                                    Image(systemName: currency)
                                         .font(.custom("MullerMedium", size: size.width * (0.05)))
                                         .foregroundColor(Color("2670AD"))
                                         .padding(.leading, size.width * (0.38))
@@ -106,7 +107,7 @@ struct GeometryReader1: View {
                                         VStack(spacing: 10) {
                                             
                                             Button(action: {
-                                                currency = Currency.dollar
+                                                currency = Currency.dollar.rawValue
                                             }, label: {
                                                 Image(systemName: "dollarsign")
                                                     .foregroundStyle(.white)
@@ -114,7 +115,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
-                                                currency = Currency.euro
+                                                currency = Currency.euro.rawValue
                                             }, label: {
                                                 Image(systemName: "eurosign")
                                                     .foregroundStyle(.white)
@@ -122,7 +123,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
-                                                currency = Currency.yenAndYuan
+                                                currency = Currency.yenAndYuan.rawValue
                                             }, label: {
                                                 Image(systemName: "yensign")
                                                     .foregroundStyle(.white)
@@ -130,7 +131,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
-                                                currency = Currency.pounds
+                                                currency = Currency.pounds.rawValue
                                             }, label: {
                                                 Image(systemName: "sterlingsign")
                                                     .foregroundStyle(.white)
@@ -138,7 +139,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
-                                                currency = Currency.rubles
+                                                currency = Currency.rubles.rawValue
                                             }, label: {
                                                 Image(systemName: "rublesign")
                                                     .foregroundStyle(.white)
