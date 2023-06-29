@@ -8,7 +8,6 @@ import SwiftUI
 import RealmSwift
 
 struct GoalsScreen: View {
-
     
     var body: some View {
         GeometryReader { geometry in
@@ -91,6 +90,7 @@ struct ExtractedView: View {
     
     @ObservedResults(PersonsGoals.self) var personGoals
     
+    
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
@@ -104,7 +104,8 @@ struct ExtractedView: View {
                             .resizable()
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                     })
-            
+                    
+                    Text("dw")
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)

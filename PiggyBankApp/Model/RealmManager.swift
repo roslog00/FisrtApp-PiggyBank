@@ -1,8 +1,8 @@
 //
-//  ViewModel.swift
-//  PiggyBank
+//  RealmManager.swift
+//  PiggyBankApp
 //
-//  Created by Вероника Гера on 11.06.2023.
+//  Created by Вероника Гера on 16.06.2023.
 //
 
 import Foundation

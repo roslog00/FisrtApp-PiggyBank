@@ -11,12 +11,13 @@ import RealmSwift
 
 struct NewMainScreen: View {
     
+    
     @ObservedResults(PersonsGoals.self) var personGoals
-    @State var goalsName = ""
-    @State var goalsCost = ""
+    @State var id : URL?
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
+    @State var goalToggle = false
     
     var body: some View {
         GeometryReader{ geometry in
@@ -38,8 +39,7 @@ struct NewMainScreen: View {
                         ForEach(personGoals, id: \.id) { line in
                             ZStack(alignment: .topTrailing){
                                 Button(action: {
-                                    goalsName = line.goalsNames
-                                    goalsCost = line.goalsCosts
+                                    goalToggle.toggle()
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
                                         Image("card bg")
@@ -64,6 +64,7 @@ struct NewMainScreen: View {
                                             .padding(.top, size.height * (0.065))
                                     }
                                 })
+                                
                             }
                             Spacer(minLength: size.height * 0.02)
                         }
