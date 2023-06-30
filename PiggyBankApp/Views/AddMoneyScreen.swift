@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AlertKit
+import RealmSwift
 
 struct AddMoneyScreen: View {
     
@@ -46,6 +47,8 @@ struct AddMoneyScreen: View {
                     Button(action: {
                         if realmManager.verificationOnNumber(number: addMoney){
                             dismiss()
+                            realmManager.addSavedMoney(id: UserDefaults.standard.object(forKey: "id") as! String, savedmoney: addMoney, goalscost: UserDefaults.standard.string(forKey: "cost")!)
+                            realmManager.writeDataToList(id: UserDefaults.standard.string(forKey: "id") ?? "none", money: addMoney)
                         } else {
                             AlertKitAPI.present(
                                 title: Errors.stringOrInt.rawValue,

@@ -13,7 +13,6 @@ struct NewMainScreen: View {
     
     @ObservedResults(PersonsGoals.self) var personsGoals
     @EnvironmentObject var realmManager: RealmManager
-    @State var currencyOfPerson = GeometryReader1()
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
@@ -44,6 +43,7 @@ struct NewMainScreen: View {
                                     UserDefaults.standard.setValue(line.goalsCosts, forKey: "cost")
                                     UserDefaults.standard.setValue(line.savedMoney, forKey: "savedMoney")
                                     UserDefaults.standard.setValue(line.date, forKey: "date")
+                                    UserDefaults.standard.setValue(line.id.stringValue, forKey: "id")
                                     
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
@@ -56,25 +56,45 @@ struct NewMainScreen: View {
                                             .lineLimit(1)
                                             .foregroundColor(Color("2670AD"))
                                             .font(.custom("MullerMedium", size: size.width / 13))
-                                            .padding(.trailing, size.width * (0.7))
                                             .padding(.top, size.height * (0.028))
-                                        HStack(spacing: size.width * (0.0000)) {
-                                            Text(line.goalsCosts)
-                                                .lineLimit(1)
-                                                .foregroundColor(Color("2670AD"))
-                                                .font(.custom("MullerBold",size: size.width / 7.2))
-                                            Image(systemName: currencyOfPerson.currency)
-                                                .foregroundColor(Color("2670AD"))
-                                                .font(.custom("MullerBold",size: size.width / 7.2))
-                                            
-                                        }.padding(.trailing, size.width * (0.63))
-                                        .padding(.top, size.height * (0.065))
+                                            .frame(width: size.width * 0.9, alignment: .leading)
+
                                         
-                                        Text(Words().massiveOfNiceWords.randomElement()!)
-                                            .foregroundColor(Color("DEF0FF"))
-                                            .font(.custom("Polka", size: size.width / 7.2))
-                                            .padding(.trailing, size.width * (0.13))
-                                            .padding(.top, size.height * (0.065))
+                                        HStack {
+                                            HStack{
+                                                Text(line.goalsCosts)
+                                                    .lineLimit(1)
+                                                    .foregroundColor(Color("2670AD"))
+                                                    .font(.custom("MullerBold",size: size.width / 8.2))
+                                                    
+                                                
+                                                Image(systemName: UserDefaults.standard.string(forKey: "currency") ?? "not currerncy")
+                                                    .foregroundColor(Color("2670AD"))
+                                                    .font(.custom("MullerBold",size: size.width / 8.2))
+                                                    .padding(.top, size.width * (-0.01))
+                                                    .padding(.leading, size.width * (-0.035))
+                                                
+                                            }.frame(width: size.width * (0.4), alignment: .leading)
+                                            
+                                            Text(Words().massiveOfNiceWords.randomElement()!)
+                                                .foregroundColor(Color("DEF0FF"))
+                                                .font(.custom("Polka", size: size.width / 9.2))
+                                                .frame(width: size.width * (0.35))
+                                        }.padding(.top, size.height * (0.074))
+                                        .frame(width: size.width * (0.90), alignment: .leading)
+                                        
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(minWidth: (CGFloat(0.8) * (0.8) * size.width))
+                                                .frame(maxWidth: (0.8 * size.width), maxHeight: size.height * (0.013))
+                                                .foregroundColor(Color("2670AD"))
+                                            Rectangle()
+                                                .frame(width: size.width * (0.8) , height: size.height * (0.013))
+                                                .foregroundColor(Color("DEF0FF"))
+                                            
+                                        }.cornerRadius(45.0)
+                                        .padding(.horizontal, size.width * (0.1))
+                                        .padding(.top, size.height * (0.145))
                                     }
                                 }).fullScreenCover(isPresented: $goalToggle){ GoalsScreen() }
                             }

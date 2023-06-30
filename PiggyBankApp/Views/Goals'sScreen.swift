@@ -10,6 +10,9 @@ import RealmSwift
 struct GoalsScreen: View {
     
     @ObservedResults(PersonsGoals.self) var personsGoals
+    @ObservedObject var realmManager = RealmManager()
+    //@ObservedObject var dateManager = DateOfGoal()
+    @State var idOfList = ""
     @State var addCashToggle = false
     
     var body: some View {
@@ -53,34 +56,7 @@ struct GoalsScreen: View {
                     
                 }.frame(maxWidth: .infinity, maxHeight: size.height * (1))
                 
-                GeometryReader { geometry in
-                    let size = geometry.size
-                    
-                    Image("Cloud1GoalScreen")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    
-                    ScrollView(showsIndicators: false) {
-                        ForEach(0..<9){
-                            if $0 < 8 {
-                                HStack(spacing: size.width * (0.24)) {
-                                    Text("+50" + "$")
-                                        .font(.custom("MullerMedium", size: size.width / 8))
-                                        .foregroundStyle(.white)
-                                    
-                                    Text("Data")
-                                        .font(.custom("MullerMedium", size: size.width / 8))
-                                        .foregroundStyle(.white)
-                                }
-                            } else {
-                                Image("StartGoalRectangle")
-                                    .resizable()
-                                    .padding(.horizontal, size.width * (0.07))
-                            }
-                            Spacer(minLength: size.height * (0.04))
-                        }
-                    }.padding(.top, size.height * (0.3))
-                }.padding(.top, size.height * (0.475))
+                ExtractedView6()
             }
         }.ignoresSafeArea(.all)
     }
@@ -97,7 +73,7 @@ struct GoalsScreen_Preview: PreviewProvider {
 struct ExtractedView4: View {
     
     @EnvironmentObject var arrayOfItem: RealmManager
-    //@ObservedObject var realmManagerDevelop = RealmManagerDevelop()
+    @ObservedObject var realmManager = RealmManager()
     @State var backToggle = false
     
     var body: some View {
@@ -105,7 +81,7 @@ struct ExtractedView4: View {
             let size = geometry.size
             
             LazyVStack(alignment: .leading, spacing: size.height * (0.04)){
-                HStack(alignment: .center, spacing: size.width * (0.11)){
+                HStack(alignment: .center, spacing: size.width * (0)){
                     Button(action: {
                         backToggle.toggle()
                     }, label: {
@@ -113,13 +89,16 @@ struct ExtractedView4: View {
                             .resizable()
                             .frame(maxWidth: size.width * (0.09), maxHeight: size.width * (0.08))
                     }).fullScreenCover(isPresented: $backToggle, content: { NewMainScreen()})
+                        .padding(.leading, size.width * (-0.15))
                     
                     Text(UserDefaults.standard.string(forKey: "name") ?? "name")
                         .lineLimit(2)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
                         .font(.custom("Polka", fixedSize: size.width / 9))
+                        .frame(width: size.width * (0.6))
                 }.padding(.top, size.height * (0.08))
+                    .frame(width: size.width * 1, alignment: .center)
                 
                 HStack(spacing: size.width * (-0.001)){
                     Text(" \(UserDefaults.standard.string(forKey: "savedMoney") ?? "3")$")
@@ -129,21 +108,96 @@ struct ExtractedView4: View {
                     Text("/ \(UserDefaults.standard.string(forKey: "cost") ?? "3") $")
                         .foregroundStyle(.white)
                         .font(.custom("MullerMedium", size: size.width / 10))
-                }.padding(.leading, size.width * (0.04))
+                }.padding(.leading, size.width * (0.06))
                 
                 
                 ZStack(alignment: .leading) {
                     Rectangle()
-                        .frame(width: size.width * (0.865) , height: size.height * (0.02))
+                        .frame(minWidth: (CGFloat(1) * (0.8) * size.width))
+                        .frame(maxWidth: (1 * size.width), maxHeight: size.height * (0.02))
+                        .foregroundColor(.white)
+                    Rectangle()
+                        .frame(width: size.width * (0.8) , height: size.height * (0.02))
                         .foregroundColor(Color("7EBEF3"))
                     
-                    Rectangle()
-                        .frame(width: (50/1300 * size.width), height: size.height * (0.02))
-                        .foregroundColor(.white)
-
                 }.cornerRadius(45.0)
+                    .padding(.horizontal, size.width * (0.06)).ignoresSafeArea(.all)
                 
-            }.padding(.leading, size.width * (0.06))
+            }
         }
+    }
+}
+
+
+struct ExtractedView6: View {
+    
+    
+    @ObservedResults(PersonsGoals.self) var personsGoals
+    @ObservedObject var realmManager = RealmManager()
+    @State var size = UIScreen.main.bounds.size
+    @State var addCashToggle = false
+    @State var idOfList = ""
+    
+    var body: some View {
+        GeometryReader { geometry in
+            let size = geometry.size
+            
+            ZStack {
+                Image("Cloud1GoalScreen")
+                    .resizable()
+                .aspectRatio(contentMode: .fill)
+                
+                Text("History")
+                    .font(.custom("Polka", size: size.width / 8))
+                    .foregroundColor(Color("2670AD"))
+                    .padding(.top, size.height * (-0.6))
+            }
+            
+            let dataOfId = realmManager.getDataWithId(id: UserDefaults.standard.string(forKey: "id")!)
+            
+            ScrollView(showsIndicators: false) {
+                if UserDefaults.standard.string(forKey: "id") == dataOfId![0].id.stringValue {
+                    ForEach(dataOfId![0].listOfAddedMoney, id: \.id) { list in
+                            HStack {
+                                Text("+" + list.addMoney)
+                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                    .foregroundStyle(.white)
+                                Image(systemName: UserDefaults.standard.string(forKey: "currency") ?? "Not Currency")
+                                    .font(.custom("MullerMedium", size: size.width / 10))
+                                    .foregroundStyle(.white)
+                                    .padding(.leading, size.width * (-0.037))
+                                    .padding(.bottom,  size.width * (0.01))
+                                
+                                Spacer(minLength: size.width * (0.13))
+                                
+                                Text(list.dateOfAddMoney)
+                                    .font(.custom("MullerMedium", size: size.width / 14))
+                                    .foregroundStyle(.white)
+                            }.padding(.horizontal, size.width * (0.05))
+                        }
+                    }
+                    Spacer(minLength: size.height * (0.04))
+                
+                ZStack(alignment: .center){
+                    
+                    Image("StartGoalRectangle")
+                        .resizable()
+                        .padding(.horizontal, size.width * (0.07))
+                    
+                    VStack{
+                        Text("Goal started")
+                            .font(.custom("MullerMedium", size: size.width / 13))
+                            .foregroundStyle(.white)
+                        
+                        Text(UserDefaults.standard.string(forKey: "date") ?? "Date.now.")
+                            .font(.custom("Polka", size: size.width / 10))
+                            .foregroundStyle(.white)
+                    }
+                }
+                
+                Spacer(minLength: size.height * (0.04))
+                
+            }.padding(.top, size.height * (0.3))
+        }.padding(.top, size.height * (0.475))
     }
 }

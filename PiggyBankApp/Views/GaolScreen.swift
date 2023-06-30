@@ -70,6 +70,7 @@ struct NewGoal: View {
                             
                         } else {
                             realmManager.writeData(newGoalsName, goalsCost: newGoaslCost)
+                            realmManager.getData()
                             //realmManagerDevelop.writeData(goalsName: newGoalsName, goalsCost: newGoaslCost)
                         }
                     }, label: {

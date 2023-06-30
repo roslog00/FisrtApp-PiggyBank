@@ -16,6 +16,5 @@ struct PiggyBankAppApp: App {
             NewMainScreen()
                 .environmentObject(RealmManager())
         }
-        .modelContainer(for: Item.self)
     }
 }

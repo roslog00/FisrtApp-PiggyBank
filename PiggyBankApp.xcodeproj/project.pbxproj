@@ -12,6 +12,7 @@
 		5622F9F12A4DCC7300C36215 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622F9F02A4DCC7300C36215 /* Currency.swift */; };
 		562F10032A43328C00D0CB39 /* Goals'sScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F10022A43328C00D0CB39 /* Goals'sScreen.swift */; };
 		562F10052A4332A500D0CB39 /* PreviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F10042A4332A500D0CB39 /* PreviewScreen.swift */; };
+		5636245A2A4F8B64008180D5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563624592A4F8B64008180D5 /* Date.swift */; };
 		56366A212A35EF78007866E6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56366A202A35EF77007866E6 /* ColorExtensions.swift */; };
 		56417EDA2A35EA89007623DA /* PiggyBankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */; };
 		56417EDE2A35EA8A007623DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56417EDD2A35EA8A007623DA /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		5622F9F02A4DCC7300C36215 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		562F10022A43328C00D0CB39 /* Goals'sScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goals'sScreen.swift"; sourceTree = "<group>"; };
 		562F10042A4332A500D0CB39 /* PreviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreen.swift; sourceTree = "<group>"; };
+		563624592A4F8B64008180D5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		56366A202A35EF77007866E6 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		56417ED92A35EA89007623DA /* PiggyBankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBankAppApp.swift; sourceTree = "<group>"; };
 		56417EDD2A35EA8A007623DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				5622F9EF2A4DCC5B00C36215 /* Main */,
+				563624592A4F8B64008180D5 /* Date.swift */,
 				56417EE22A35EA8A007623DA /* Model.swift */,
 				5622F9ED2A4DCC1C00C36215 /* Errors.swift */,
 				5622F9F02A4DCC7300C36215 /* Currency.swift */,
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56417F022A35EAC7007623DA /* MainScreen.swift in Sources */,
+				5636245A2A4F8B64008180D5 /* Date.swift in Sources */,
 				56417F002A35EAC7007623DA /* MenuScreen.swift in Sources */,
 				56417EFA2A35EABA007623DA /* ViewModel.swift in Sources */,
 				56417EF92A35EABA007623DA /* NiceWords.swift in Sources */,

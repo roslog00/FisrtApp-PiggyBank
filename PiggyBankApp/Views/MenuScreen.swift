@@ -107,6 +107,7 @@ struct GeometryReader1: View {
                                         VStack(spacing: 10) {
                                             
                                             Button(action: {
+                                                UserDefaults.standard.setValue(Currency.dollar.rawValue, forKey: "currency")
                                                 currency = Currency.dollar.rawValue
                                             }, label: {
                                                 Image(systemName: "dollarsign")
@@ -115,6 +116,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
+                                                UserDefaults.standard.setValue(Currency.euro.rawValue, forKey: "currency")
                                                 currency = Currency.euro.rawValue
                                             }, label: {
                                                 Image(systemName: "eurosign")
@@ -123,6 +125,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
+                                                UserDefaults.standard.setValue(Currency.yenAndYuan.rawValue, forKey: "currency")
                                                 currency = Currency.yenAndYuan.rawValue
                                             }, label: {
                                                 Image(systemName: "yensign")
@@ -131,6 +134,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
+                                                UserDefaults.standard.setValue(Currency.pounds.rawValue, forKey: "currency")
                                                 currency = Currency.pounds.rawValue
                                             }, label: {
                                                 Image(systemName: "sterlingsign")
@@ -139,6 +143,7 @@ struct GeometryReader1: View {
                                             })
                                             
                                             Button(action: {
+                                                UserDefaults.standard.setValue(Currency.rubles.rawValue, forKey: "currency")
                                                 currency = Currency.rubles.rawValue
                                             }, label: {
                                                 Image(systemName: "rublesign")

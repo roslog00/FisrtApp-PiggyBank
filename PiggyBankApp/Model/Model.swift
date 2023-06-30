@@ -6,17 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 import RealmSwift
 
-@Model
-final class Item {
-    var timestamp: Date
-    
-    init(timestamp: Date) {
-        self.timestamp = timestamp
-    }
-}
 
 //class Person: Object, ObjectKeyIdentifiable {
 //    @Persisted(primaryKey: true) var id: ObjectId
@@ -24,14 +15,14 @@ final class Item {
 //}
 
 
-class PersonsGoals: Object, ObjectKeyIdentifiable {
+final class PersonsGoals: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var goalsNames = ""
     @Persisted var goalsCosts = ""
     @Persisted var savedMoney = ""
     @Persisted var completedGoal = false
     @Persisted var listOfAddedMoney = List<SavedMoney>()
-    @Persisted var date: Date
+    @Persisted var date : String = ""
     
     override class func primaryKey() -> String? {
         "id"
@@ -39,6 +30,7 @@ class PersonsGoals: Object, ObjectKeyIdentifiable {
 
 }
 
-class SavedMoney: Object {
+final class SavedMoney: Object, ObjectKeyIdentifiable {
+    @Persisted var dateOfAddMoney: String = ""
     @Persisted var addMoney = ""
 }

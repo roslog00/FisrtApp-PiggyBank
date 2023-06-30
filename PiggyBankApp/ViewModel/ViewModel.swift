@@ -12,6 +12,7 @@ import SwiftUI
 
 class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
+    @ObservedObject var dateManager = DateOfGoal()
     @Published var allDataOfPersonsGoals: [PersonsGoals] = []
     @Published var dataOfPersonGoalsWithId: PersonsGoals?
     @Published var id = PersonsGoals().id
@@ -45,33 +46,38 @@ class RealmManager: ObservableObject {
         }
     }
     
-    func getDataWithId(id: ObjectId) {
+    func getDataWithId(id: String) -> Results<PersonsGoals>?  {
         if let localrealm = localRealm {
             do {
-                let allDataWithId = localrealm.objects(PersonsGoals.self).filter(NSPredicate(format: "id == %@", id))
-                dataOfPersonGoalsWithId = nil
-                
-                allDataWithId.forEach { task in
-                    dataOfPersonGoalsWithId = task
-                    print(dataOfPersonGoalsWithId)
-                }
-                
+                let id1 = try ObjectId(string: id)
+                let allDataWithId = localrealm.objects(PersonsGoals.self).filter(NSPredicate(format: "id == %@", id1))
                 print("Realm get data with id")
+                
+                return allDataWithId
                 
             } catch {
                 print("Error getting data from Realm with error \(error)")
             }
             
         }
-        
+
+        return nil
     }
     
     
     func writeData(_ goalsName: String, goalsCost: String ) {
+        let date = dateManager.getDate()
         if let localrealm = localRealm {
             do {
                 try localrealm.write {
-                    let newTask = PersonsGoals(value: ["goalsNames": goalsName, "goalsCosts": goalsCost, "savedMoney": "0", "completedGoal": false, "date": Date.now ])
+                    let newTask = PersonsGoals(value: ["goalsNames": goalsName, "goalsCosts": goalsCost, "savedMoney": "0", "completedGoal": false, "date": date])
+                    let savedMoneyTask = SavedMoney()
+                    
+                    savedMoneyTask.addMoney = "0"
+                    savedMoneyTask.dateOfAddMoney = date
+                    
+                    newTask.listOfAddedMoney.append(savedMoneyTask)
+                    
                     localrealm.add(newTask)
                     
                     print("New task - \(newTask) added to Realm")
@@ -82,11 +88,31 @@ class RealmManager: ObservableObject {
         }
     }
     
-    
-    func addSavedMoney(id: ObjectId, savedmoney: String, goalscost: String, completed: Bool? = nil) {
+    func writeDataToList(id: String, money: String) {
         if let localrealm = localRealm {
             do {
-                let taskToUpdate = localrealm.objects(PersonsGoals.self).filter(NSPredicate(format: "id == %@", id))
+                let id1 = try ObjectId(string: id)
+                try localrealm.write {
+                    let allDataWithId = localrealm.objects(PersonsGoals.self).filter(NSPredicate(format: "id == %@", id1))
+                    let newAddMoney = SavedMoney()
+                    newAddMoney.addMoney = money
+                    newAddMoney.dateOfAddMoney = dateManager.getDate()
+                    
+                    allDataWithId[0].listOfAddedMoney.append(newAddMoney)
+                }
+                
+            } catch {
+                
+            }
+        }
+    }
+    
+    
+    func addSavedMoney(id: String, savedmoney: String, goalscost: String, completed: Bool? = nil) {
+        if let localrealm = localRealm {
+            do {
+               let id1 = try ObjectId(string: id)
+                let taskToUpdate = localrealm.objects(PersonsGoals.self).filter(NSPredicate(format: "id == %@", id1))
                 
                 guard !taskToUpdate.isEmpty else { return }
                 
@@ -132,7 +158,6 @@ class RealmManager: ObservableObject {
     }
     
     
-    
     func verificationOnNumber(number: String) -> Bool {
         var bool = true
         
@@ -154,6 +179,16 @@ class RealmManager: ObservableObject {
         }
         
         return bool
+    }
+  
+    func ratio() -> Int {
+        let ratio = Int(UserDefaults.standard.string(forKey: "savedMoney")!)! / Int(UserDefaults.standard.string(forKey: "cost")!)!
+        print("Ratio = \(ratio)")
+        return ratio
+    }
+    
+    func sizeRatio(string: String) -> Int {
+        (string.count / 10) * 50
     }
     
 //    func getNameWithId(id: ObjectId) {

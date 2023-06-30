@@ -7,6 +7,6 @@
 
 import Foundation
 
-public class Words {
+final public class Words {
     public var massiveOfNiceWords = ["good", "well", "nice", "great", "super", "fine", "wow", "bravo"]
 }
