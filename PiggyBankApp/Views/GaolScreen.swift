@@ -14,6 +14,7 @@ struct NewGoal: View {
     @State var backToMenuToggle = false
     @State var newGoalsName = ""
     @State var newGoaslCost = ""
+    @ObservedObject var realmManager = RealmManager()
     @ObservedResults(PersonsGoals.self) var personsGoals
     
     var body: some View {
@@ -67,12 +68,7 @@ struct NewGoal: View {
                         if newGoalsName.isEmpty, newGoaslCost.isEmpty {
                             
                         } else {
-                            let newGoal = PersonsGoals()
-                            newGoal.goalsNames = newGoalsName
-                            newGoal.goalsCosts = newGoaslCost
-                            newGoal.savedMoney = "0"
-                            
-                            $personsGoals.append(newGoal)
+                            realmManager.writeData(newGoalsName, goalsCost: newGoaslCost)
                         }
                     }, label: {
                         Text("OK")

@@ -13,6 +13,8 @@ struct NewMainScreen: View {
     
     
     @ObservedResults(PersonsGoals.self) var personGoals
+    @ObservedObject var realmManager = RealmManager()
+    @State var currencyOfPerson = GeometryReader1()
     @State var finishedMenuToggle = false
     @State var menuToggle = false
     @State var plusGoals = false
@@ -39,8 +41,7 @@ struct NewMainScreen: View {
                             ZStack(alignment: .topTrailing){
                                 Button(action: {
                                     goalToggle.toggle()
-                                    let getData = RealmManager()
-                                    getData.getData(id: line.id)
+                                    realmManager.saveId(id1: line.id)
                                 }, label: {
                                     ZStack(alignment: .topTrailing){
                                         Image("card bg")
@@ -53,11 +54,18 @@ struct NewMainScreen: View {
                                             .font(.custom("MullerMedium", size: size.width / 13))
                                             .padding(.trailing, size.width * (0.7))
                                             .padding(.top, size.height * (0.028))
-                                        Text(line.goalsCosts + "$")
-                                            .foregroundColor(Color("2670AD"))
-                                            .font(.custom("MullerBold",size: size.width / 7.2))
-                                            .padding(.trailing, size.width * (0.63))
-                                            .padding(.top, size.height * (0.065))
+                                        HStack(spacing: size.width * (0.0000)) {
+                                            Text(line.goalsCosts)
+                                                .lineLimit(1)
+                                                .foregroundColor(Color("2670AD"))
+                                                .font(.custom("MullerBold",size: size.width / 7.2))
+                                            Image(systemName: currencyOfPerson.currency)
+                                                .foregroundColor(Color("2670AD"))
+                                                .font(.custom("MullerBold",size: size.width / 7.2))
+                                            
+                                        }.padding(.trailing, size.width * (0.63))
+                                        .padding(.top, size.height * (0.065))
+                                        
                                         Text(Words().massiveOfNiceWords.randomElement()!)
                                             .foregroundColor(Color("DEF0FF"))
                                             .font(.custom("Polka", size: size.width / 7.2))
