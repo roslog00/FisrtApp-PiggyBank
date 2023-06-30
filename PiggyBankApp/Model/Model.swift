@@ -9,44 +9,16 @@ import Foundation
 import RealmSwift
 
 
-
-class Person: Object, Identifiable {
-    
-    @Persisted var personsName = ""
-    @Persisted var personsCurrency = ""
-    
-}
-
 class PersonsGoals: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var goalsNames = ""
     @Persisted var goalsCosts = ""
-
-    
+    @Persisted var savedMoney = ""
+    @Persisted var completedGoal = false
+    @Persisted var date: Date
     
     override class func primaryKey() -> String? {
         "id"
     }
 
-}
-
-enum Currency: Identifiable, CaseIterable {
-    var id: Self { self }
-    var description: String {
-        switch self {
-        case .dollar: return "dollar"
-        case .euro: return "euro"
-        case .pounds: return "pounds"
-        case .yuan: return "yuan"
-        case .yen: return "yen"
-        case .rubles: return "rubles"
-        }
-    }
-    
-    case dollar
-    case euro
-    case yuan
-    case yen
-    case pounds
-    case rubles
 }
