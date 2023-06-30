@@ -15,6 +15,5 @@ struct PiggyBankAppApp: App {
         WindowGroup {
             NewMainScreen()
         }
-        .modelContainer(for: Item.self)
     }
 }
